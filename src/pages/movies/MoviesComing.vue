@@ -65,7 +65,7 @@ export default {
       url: '/ajax/mostExpected'
     }))
     this.mostExpected = mostExpectedResource.coming
-    
+
     // 横向scroll
     scroll({
       el: '#most-expected-scroll',

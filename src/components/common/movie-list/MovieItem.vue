@@ -3,9 +3,9 @@
     <div class="main-block">
       <div class="avatar" sort-flag="">
         <div class="default-img-bg">
-          <img :src="item.img | replaceWH('128.180')" onerror="this.style.visibility='hidden'">		
+          <img :src="item.img | replaceWH('128.180')" onerror="this.style.visibility='hidden'">
         </div>
-      </div> 
+      </div>
       <div class="mb-outline-b content-wrapper">
         <div class="column content">
           <div class="box-flex movie-title">
@@ -14,7 +14,7 @@
             <span :class="{'pre-show': item.preShow}"></span>
           </div>
           <div v-if="$route.name==='intheater'" class="detail column">
-            <div class="score line-ellipsis"> 
+            <div class="score line-ellipsis">
               <span class="score-suffix">观众评 </span>
               <span class="grade">{{ item.sc }}</span>
             </div>
@@ -25,7 +25,7 @@
             <div class="wantsee line-ellipsis">
               <span class="person">{{item.wish}}</span>
               <span class="p-suffix">人想看</span>
-            </div>							
+            </div>
             <div class="actor line-ellipsis">主演: {{item.star || '暂无主演信息'}}</div>
             <div class="actor line-ellipsis">{{ item.rt }} 上映</div>
           </div>
@@ -41,7 +41,6 @@
         </div>
       </div>
     </div>
-  </div>
 </template>
 
 <script>
@@ -53,6 +52,7 @@ export default {
   components: {
     MovieButton
   },
+  //组件内部过滤器，展示不同按钮内容
   filters: {
     globalReleasedText (value) {
       return !value ? '预售' : '购票'
