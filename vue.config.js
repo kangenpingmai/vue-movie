@@ -14,7 +14,7 @@ module.exports = {
   },
 
   baseUrl: '/dist/',
-
+  // 接口代理
   devServer: {
     proxy: {
       '/ajax': {

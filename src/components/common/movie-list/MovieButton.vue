@@ -15,6 +15,7 @@
 
 <script>
 export default {
+  // 传入信息格式验证
   props: {
     globalReleased: Boolean,
     showst: Number
