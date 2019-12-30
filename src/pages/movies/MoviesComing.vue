@@ -36,6 +36,8 @@ import MovieList from 'components/common/movie-list/MovieList'
 import http from 'utils/http'
 import { Indicator } from 'mint-ui'
 import { scroll } from 'utils/scroll'
+import {movieExtendData} from '../../mockData/movieExtend';
+import {movieComingData} from '../../mockData/movieListNext';
 
 export default {
   data () {
@@ -60,11 +62,13 @@ export default {
       url: '/ajax/comingList'
     })
 
+    this.comingResource = movieComingData;
+
     let mostExpectedResource = (await http({
       method: 'get',
       url: '/ajax/mostExpected'
     }))
-    this.mostExpected = mostExpectedResource.coming
+    this.mostExpected = movieExtendData.coming
 
     // 横向scroll
     scroll({

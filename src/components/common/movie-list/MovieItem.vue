@@ -19,7 +19,7 @@
               <span class="grade">{{ item.sc }}</span>
             </div>
             <div class="actor line-ellipsis">{{ item.star || '暂无演职人员信息' }}</div>
-            <div class="show-info line-ellipsis">{{ item.showInfo }}</div>
+            <div class="show-info line-ellipsis">{{ item.showInfo || '暂无场次'}}</div>
           </div>
           <div v-else class="detail column">
             <div class="wantsee line-ellipsis">

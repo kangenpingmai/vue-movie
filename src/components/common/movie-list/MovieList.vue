@@ -29,6 +29,10 @@ export default {
     }
   },
 
+  beforeMount(){
+    console.log('resource', this.resource)
+  },
+
   computed: {
     groupedMovies () {
       return _.groupBy(this.movies, (item) => {
@@ -41,12 +45,13 @@ export default {
     MovieItem
   },
 
+  //监听resource从null变为有值就会执行
   watch: {
     // 1、监听父组件二次传过来的新值
     // 2、下一步准备更新moives, 因此必须让movies可以重新赋值
     resource () {
-      this.movies = this.resource 
-        && (this.$route.name === 'intheater' 
+      this.movies = this.resource
+        && (this.$route.name === 'intheater'
           ? this.resource.movieList
           : this.resource.coming)
         || []

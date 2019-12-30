@@ -13,7 +13,7 @@ export const scroll = ({
   horizontal = false
 }) => {
   let count = 0
-
+  //去除第一页的12的id，剩下的10个一组分开
   let movieIds = _.chunk(inTheater && inTheater.movieIds.slice(12) || {}, 10)
 
   // 声明BScroll
@@ -27,6 +27,7 @@ export const scroll = ({
 
   // 监听 pullingUp
   bscroll.on('pullingUp', async () => {
+    console.log('pullingUp')
     if (count < movieIds.length) {
       // 分页的ajax请求
       let result = await http({
@@ -44,10 +45,10 @@ export const scroll = ({
       // $nextTick 保证了本次refresh会拿到渲染好以后的movies
       vm.$nextTick(() => {
         bscroll.refresh()
-        
+
         count++
 
-        // 告诉better-scroll, 可以进行下次滑动了
+        // 告诉better-scroll, 可以进行下次滑动了 ，节流的作用，避免ajax多次请求
         bscroll.finishPullUp()
       })
     }

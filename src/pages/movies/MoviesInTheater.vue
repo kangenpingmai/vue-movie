@@ -14,7 +14,7 @@
 import MovieList from 'components/common/movie-list/MovieList'
 import http from 'utils/http'
 import { Indicator } from 'mint-ui'
-
+import {movieData} from '../../mockData/movieListData'
 export default {
   data () {
     return {
@@ -37,10 +37,12 @@ export default {
       url: '/ajax/movieOnInfoList'
     })
 
-    this.inTheaterResource = result
+    this.inTheaterResource = movieData;
 
     // 为了演示Indicator 唯一实例的问题
-    Indicator.close()
+    setTimeout(()=>{
+      Indicator.close()
+    },500)
   }
 }
 </script>
