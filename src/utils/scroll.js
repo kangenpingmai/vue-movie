@@ -2,7 +2,7 @@ import { Toast } from 'mint-ui'
 import BScroll from 'better-scroll'
 import http from 'utils/http'
 import _ from 'lodash'
-
+//通过horizontal参数布尔值判断是否横向滚动
 export const scroll = ({
   el,
   data,
@@ -69,8 +69,12 @@ export const scroll = ({
   let reachThreshold = false
   let hasMore = true
   bscroll.on('scroll', () => {
+    //horizontal判断是横向滑动的时候，加载更多数据的逻辑
     if (horizontal) {
       const threshold = 50
+      //curPosition判断滑动的位置是否已经把数据展示完了
+      // bscroll.maxScrollX最大值
+      // bscroll.x已经滑动的值
       const curPosition = bscroll.maxScrollX - bscroll.x
       if (curPosition > threshold) {
         reachThreshold = true
@@ -78,6 +82,8 @@ export const scroll = ({
     }
   })
   bscroll.on('scrollEnd', async () => {
+    console.log('scrollEnd', '--触发');
+    // 滑动动作结束后判断条件是否请求新数据
     if (horizontal && reachThreshold && hasMore) {
       count++
       // 分页的ajax请求

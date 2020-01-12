@@ -1,5 +1,8 @@
 <template>
-  <router-view></router-view>
+  <!-- 要缓存城市组件和电影组件，keep-alive就要加在两组件的父组件（包裹组件）上 -->
+  <keep-alive>
+    <router-view></router-view>
+  </keep-alive>
 </template>
 
 <script>

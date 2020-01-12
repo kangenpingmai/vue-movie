@@ -29,8 +29,8 @@ export default {
     }
   },
 
-  beforeMount(){
-    console.log('resource', this.resource)
+  beforeMount () {
+    // console.log('resource', this.resource)
   },
 
   computed: {
@@ -75,5 +75,4 @@ export default {
 </script>
 
 
-<style lang="stylus" scoped>
-</style>
+<style lang="stylus" scoped></style>

@@ -41,10 +41,10 @@
       <div class="nav-item" @click="gotoHotlist">
         热门
       </div>
-      <div 
-        class="nav-letter nav-item" 
-        @click="gotoLetter(key)" 
-        v-for="(item, key) of allCities" 
+      <div
+        class="nav-letter nav-item"
+        @click="gotoLetter(key)"
+        v-for="(item, key) of allCities"
         :key="key"
         @touchstart = "handleTouchStart($event)"
         @touchmove = "handleTouchMove($event)"
@@ -113,6 +113,10 @@ export default {
     },
 
     handleTouchMove: _.throttle( function(e) {
+      //120是字母A距离顶部距离，
+      // e.touches[0].clientY是当前的字母距顶部距离，
+      // 18.67是一个字母的高度
+
       if (this.touchStatus) {
         let index = Math.floor((e.touches[0].clientY - 120) / 18.67)
         let letters = Object.keys(this.allCities)

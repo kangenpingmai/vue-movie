@@ -8,11 +8,11 @@ import VueProgressBar from 'vue-progressbar'
 import store from './store/'
 
 const options = {
-  color: '#bffaf3',
+  color: '#faaf22',
   failedColor: '#874b4b',
   thickness: '5px',
   transition: {
-    speed: '0.2s',
+    speed: '.5s',
     opacity: '0.6s',
     termination: 300
   },
@@ -20,7 +20,7 @@ const options = {
   location: 'top',
   inverse: false
 }
- 
+
 Vue.use(VueProgressBar, options)
 
 Vue.config.productionTip = false

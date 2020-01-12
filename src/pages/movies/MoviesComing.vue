@@ -75,7 +75,7 @@ export default {
       el: '#most-expected-scroll',
       data: this.mostExpected,
       horizontal: true,
-      paging: mostExpectedResource.paging,
+      paging: movieExtendData.paging,
       url: '/ajax/mostExpected',
       vm: this
     })
